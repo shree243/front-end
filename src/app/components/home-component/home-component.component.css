@@ -1,0 +1,137 @@
+/* 1. Reset or basic styles (optional)
+   You could also use a global CSS reset or Bootstrap/Tailwind, etc. */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 2. Header and Transparent Nav */
+  header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999; /* Keep the nav on top of the hero */
+  
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background-color: transparent; /* Transparent background */
+      
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+  
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+  
+        li {
+          a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            transition: color 0.3s;
+  
+            &:hover {
+              color: #007bff; /* Hover color */
+            }
+          }
+        }
+      }
+  
+      .login-btn {
+        background: none;
+        border: 1px solid #000;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+  
+        &:hover {
+          background: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+  
+  /* 3. Hero Section */
+  .hero {
+    /* Add top margin to accommodate the fixed nav */
+    margin-top: 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: #f9fafc; /* Light background color */
+  
+    .hero-content {
+      width: 100%;
+      max-width: 1200px; /* Adjust as needed */
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+  
+      .text-section {
+        max-width: 600px;
+  
+        h1 {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          line-height: 1.2;
+        }
+  
+        p {
+          font-size: 1.2rem;
+          margin-bottom: 2rem;
+          color: #555;
+        }
+  
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+  
+          button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+          }
+  
+          .explore-btn {
+            background-color: #007bff;
+            color: #fff;
+            &:hover {
+              background-color: #0056b3;
+            }
+          }
+  
+          .get-started-btn {
+            background-color: #ffc107;
+            color: #000;
+            &:hover {
+              background-color: #e0a800;
+            }
+          }
+        }
+      }
+  
+      .image-section {
+        /* Adjust width as needed for a bigger image */
+        img {
+          width: 500px;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  

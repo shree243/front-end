@@ -1,0 +1,70 @@
+<!-- <p>dashboard-nav works!</p> -->
+<nav class="dashboard-nav">
+  <div class="nav-top">
+    <div class="logo-section">
+      <!-- <img src="assets/logo.png" alt="Logo" class="logo" />
+      <span class="app-name">MINIBLE</span> -->
+    </div>
+    <div class="nav-actions">
+      <div class="icon-group">
+        <i class="icon-grid"></i>
+        <div class="notification">
+          <i class="icon-bell"></i>
+          <!-- <span class="badge">3</span> -->
+        </div>
+      </div>
+      <div class="user-section">
+        <div class="dropdown me-1">
+          <button
+            type="button"
+            class="dropdown-toggle border-0 bg-transparent p-0 no-caret"
+            id="dropdownMenuOffset"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            data-bs-offset="10,20"
+            style="line-height: 0"
+          >
+            <img
+              src="loginavatar.jpg"
+              alt="User"
+              class="avatar"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                object-fit: cover;
+              "
+            />
+          </button>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+            <li>
+              <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- <span class="username">testing</span> -->
+        <i class="icon-dropdown"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-tabs">
+    <div class="tab active">
+      <a class="nav-link" routerLink="/app-invest-ment-overview">
+        Investment Overview
+      </a>
+    </div>
+    <div class="tab">
+      <a class="nav-link" routerLink="/app-portfolio-insights">
+        Portfolio Insights
+      </a>
+    </div>
+    <div class="tab">
+      <a class="nav-link" routerLink="/app-recommendation"> Recommendations </a>
+    </div>
+  </div>
+</nav>
+
+<!-- <router-outlet></router-outlet> -->
