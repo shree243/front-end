@@ -1,19 +1,35 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { PortfolioService } from '../../portfolio.service';
+import { OnInit, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   imports: [CommonModule, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, AfterViewInit {
   navbarBackground: string = 'none';
 
   posts: any[] = [];
+  token: string | null = null;
+  constructor() {}
 
-  constructor(private portfolioService: PortfolioService) {}
+  ngOnInit(): void {
+    this.token = localStorage.getItem('authToken');
+  }
 
-  ngOnInit() {}
+  ngAfterViewInit(): void {
+    window.addEventListener('scroll', this.onWindowScroll);
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
 }

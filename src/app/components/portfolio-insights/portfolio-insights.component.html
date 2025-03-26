@@ -1,17 +1,11 @@
-<p>portfolio-insights works!</p>
-<!-- <p>dashboard-nav works!</p> -->
 <nav class="dashboard-nav">
   <div class="nav-top">
-    <div class="logo-section">
-      <!-- <img src="assets/logo.png" alt="Logo" class="logo" />
-        <span class="app-name">MINIBLE</span> -->
-    </div>
+    <div class="logo-section"></div>
     <div class="nav-actions">
       <div class="icon-group">
         <i class="icon-grid"></i>
         <div class="notification">
           <i class="icon-bell"></i>
-          <!-- <span class="badge">3</span> -->
         </div>
       </div>
       <div class="user-section">
@@ -45,7 +39,6 @@
           </ul>
         </div>
 
-        <!-- <span class="username">testing</span> -->
         <i class="icon-dropdown"></i>
       </div>
     </div>
@@ -69,7 +62,7 @@
 </nav>
 
 <div class="container mt-4">
-  <h4>Your Portfolio Holdings</h4>
+  <h4>Portfolio Holdings</h4>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -89,10 +82,16 @@
         <td>{{ stock.currentPrice | currency }}</td>
         <td>{{ stock.currentValue | currency }}</td>
         <td>
-          <button class="btn btn-sm btn-success me-2" (click)="buy(stock)">
+          <button
+            class="btn btn-sm btn-success me-2"
+            (click)="openQuantityDialog('buy', stock)"
+          >
             Buy
           </button>
-          <button class="btn btn-sm btn-danger" (click)="sell(stock)">
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="openQuantityDialog('sell', stock)"
+          >
             Sell
           </button>
         </td>
@@ -100,5 +99,23 @@
     </tbody>
   </table>
 </div>
+
+<ng-template #quantityDialog>
+  <h2 mat-dialog-title>
+    {{ selectedAction | titlecase }} {{ selectedStock.stock }}
+  </h2>
+  <mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantity</mat-label>
+      <input matInput type="number" [(ngModel)]="selectedQuantity" />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="primary" (click)="confirmQuantity()">
+      Confirm
+    </button>
+  </mat-dialog-actions>
+</ng-template>
 
 <router-outlet></router-outlet>

@@ -1,5 +1,3 @@
-<p>invest-ment-overview works!</p>
-<!-- <p>dashboard-nav works!</p> -->
 <nav class="dashboard-nav">
   <div class="nav-top">
     <div class="logo-section">
@@ -68,19 +66,6 @@
   </div>
 </nav>
 
-<!-- <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Small</mat-card-subtitle>
-      <img
-        mat-card-sm-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-      />
-    </mat-card-title-group>
-  </mat-card-header>
-</mat-card> -->
-
 <div class="card-row">
   <mat-card class="mini-card" appearance="outlined">
     <div class="card-body">
@@ -101,7 +86,7 @@
         <div class="subtitle">{{ valuation.currentValue | currency }}</div>
       </div>
       <div class="card-image">
-        <img src="card1.png" alt="Current Value" />
+        <img src="card2.jpg" alt="Current Value" />
       </div>
     </div>
   </mat-card>
@@ -121,7 +106,7 @@
         </div>
       </div>
       <div class="card-image">
-        <img src="card1.png" alt="Profit" />
+        <img src="card3.jpg" alt="Profit" />
       </div>
     </div>
   </mat-card>
@@ -135,14 +120,14 @@
         </div>
       </div>
       <div class="card-image">
-        <img src="card1.png" alt="Growth" />
+        <img src="card6.jpg" alt="Growth" />
       </div>
     </div>
   </mat-card>
 </div>
 
 <div class="container mt-4">
-  <h4>Your Portfolio Holdings</h4>
+  <h4>Portfolio Holdings</h4>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -151,9 +136,9 @@
         <th>Buy Price</th>
         <th>Current Price</th>
         <th>Current Value</th>
+        <!-- <th>Actions</th> -->
       </tr>
     </thead>
-
     <tbody>
       <tr *ngFor="let stock of stocks">
         <td>{{ stock.stock }}</td>

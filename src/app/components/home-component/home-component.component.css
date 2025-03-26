@@ -60,78 +60,279 @@
       }
     }
   }
+  /* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* Reset default browser margins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   
-  /* 3. Hero Section */
+  /* Ensure the html and body take the full viewport height */
+  html, body {
+    height: 100%;
+    /* overflow: hidden; */
+     background-color: #000;  
+  }
+  
+  /* Hero container: full screen background with centered image */
   .hero {
-    /* Add top margin to accommodate the fixed nav */
-    margin-top: 80px;
-    min-height: 100vh;
+    width: 100%;
+    height: 90vh;                /* Use full viewport height; change to 80vh if desired */
+    background-size: cover;       /* Ensures the image covers the container */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;
+    position: relative;           /* Allows absolute positioning of overlay text */
+    overflow: hidden;             /* Hide any overflow that might cause scrolling */
+  }
+  
+  /* Overlay text positioned in the center */
+  .text-section {
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+    z-index: 2;       /* Place text above the background image */
+    text-align: center;
+    padding: 1rem;
+    color: #fff;      /* Adjust text color for better contrast */
+  }
+  
+  /* Optional: Style the headings, paragraphs, and buttons */
+  .text-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .text-section p {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-buttons {
     display: flex;
-    align-items: center;
-    background: #f9fafc; /* Light background color */
+    gap: 1rem;
+    justify-content: center;
+  }
   
-    .hero-content {
-      width: 100%;
-      max-width: 1200px; /* Adjust as needed */
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 2rem;
+  .cta-buttons button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
   
-      .text-section {
-        max-width: 600px;
+  .explore-btn {
+    background-color: grey;
+    color: #fff;
+  }
   
-        h1 {
-          font-size: 3rem;
-          margin-bottom: 1rem;
-          line-height: 1.2;
-        }
+  .explore-btn:hover {
+    background-color: black;
+  }
   
-        p {
-          font-size: 1.2rem;
-          margin-bottom: 2rem;
-          color: #555;
-        }
+  .get-started-btn {
+    background-color: #28A745;
+    color: #fff;
+  }
   
-        .cta-buttons {
-          display: flex;
-          gap: 1rem;
+  .get-started-btn:hover {
+    background-color: black;
+  }
   
-          button {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-          }
+  /* 
+  ========== NEW STYLES FOR PREMIUM SECTION ==========
+  Place these styles below your existing hero styles 
+*/
+
+.premium-section {
+    background: #000; 
+    background: linear-gradient(90deg, #000 70%, #1a1a1a 100%);
+    color: #fff;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden; 
+  }
   
-          .explore-btn {
-            background-color: #007bff;
-            color: #fff;
-            &:hover {
-              background-color: #0056b3;
-            }
-          }
+  .premium-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
   
-          .get-started-btn {
-            background-color: #ffc107;
-            color: #000;
-            &:hover {
-              background-color: #e0a800;
-            }
-          }
-        }
-      }
+  .premium-heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
   
-      .image-section {
-        /* Adjust width as needed for a bigger image */
-        img {
-          width: 500px;
-          max-width: 100%;
-          height: auto;
-        }
-      }
-    }
+  .premium-subheading {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+  
+  .highlight {
+    color: #ff8c00; 
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .info-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .info-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .icon-placeholder {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff8c00; 
+  }
+  
+  .info-item h3 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  
+  .secondary-heading {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    line-height: 1.3;
+  }
+
+.feedback-section {
+    background-color: #000; 
+    color: #fff;
+    padding: 3rem 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .feedback-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .highlight {
+    color: #ff8c00; 
+  }
+  .feedback-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .feedback-card {
+    background-color: #1c1c1c; 
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .stars {
+    font-size: 1.2rem;
+    color: #ff8c00;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .author-info {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+  }.promo-banner {
+   
+    background: linear-gradient(90deg, #8B7500 60%, #111 100%);
+    text-align: center;
+    color: #fff;
+    padding: 3rem 1rem;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .promo-banner h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .promo-banner p {
+    font-size: 1.2rem;
+  }
+  .site-footer {
+    background-color: #000; 
+    color: #fff;            
+    padding: 2rem 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-links-container {
+    text-align: center;
+  }
+  
+  .footer-links {
+    list-style: none;
+    display: inline-flex; 
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+  }
+  
+  .footer-links li a:hover {
+    color: #ff8c00; 
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #555; 
+    max-width: 600px;
+    margin: 1rem auto;
+  }
+  
+  .footer-info {
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    max-width: 800px;
+    margin: 0.5rem auto 0 auto;
   }
   

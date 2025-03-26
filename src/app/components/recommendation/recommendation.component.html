@@ -1,17 +1,11 @@
-<p>recommendation works!</p>
-<!-- <p>dashboard-nav works!</p> -->
 <nav class="dashboard-nav">
   <div class="nav-top">
-    <div class="logo-section">
-      <!-- <img src="assets/logo.png" alt="Logo" class="logo" />
-        <span class="app-name">MINIBLE</span> -->
-    </div>
+    <div class="logo-section"></div>
     <div class="nav-actions">
       <div class="icon-group">
         <i class="icon-grid"></i>
         <div class="notification">
           <i class="icon-bell"></i>
-          <!-- <span class="badge">3</span> -->
         </div>
       </div>
       <div class="user-section">
@@ -44,7 +38,6 @@
             </li>
           </ul>
         </div>
-        <!-- <span class="username">testing</span> -->
         <i class="icon-dropdown"></i>
       </div>
     </div>
@@ -77,20 +70,62 @@
     Get Details
   </button>
 
-  <table *ngIf="stockDetails" class="mt-4 w-full border border-collapse">
-    <thead>
-      <tr>
-        <th>Field</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let key of stockDetails | keyvalue">
-        <td>{{ key.key }}</td>
-        <td>{{ key.value }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container mt-4">
+    <h4>Stock Details</h4>
+    <table *ngIf="stockDetails" class="table table-striped">
+      <thead>
+        <tr>
+          <th *ngFor="let item of stockDetails | keyvalue">
+            {{ item.key }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td *ngFor="let item of stockDetails | keyvalue">
+            {{ item.value }}
+          </td>
+        </tr>
+        <tr>
+          <td [attr.colspan]="stockDetails | keyvalue">
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="openBuyDialog(stockDetails.stockSymbol)"
+            >
+              Buy Stock
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [title]="chartOptions.title"
+    ></apx-chart>
+  </div>
+
+  <router-outlet></router-outlet>
 </div>
 
-<router-outlet></router-outlet>
+<ng-template #buyDialog>
+  <h2 mat-dialog-title>Buy {{ selectedSymbol }}</h2>
+  <mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantity</mat-label>
+      <input matInput type="number" [(ngModel)]="quantity" />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="primary" (click)="confirmBuy()">
+      Confirm
+    </button>
+  </mat-dialog-actions>
+</ng-template>

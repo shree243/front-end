@@ -3,6 +3,7 @@
     background-color: #5569ff;
     color: #fff;
     font-family: Arial, sans-serif;
+    margin-top: 8%;
   }
   
   .no-caret::after {
@@ -120,6 +121,7 @@
     padding: 20px;
     flex-wrap: wrap;
     background-color: #f5f6fa;
+    margin-top: 5%;
   }
   
   .mini-card {

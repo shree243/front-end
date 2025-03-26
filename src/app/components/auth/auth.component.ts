@@ -25,7 +25,7 @@ export class AuthComponent {
       this.portfolioService.register(form.value).subscribe({
         next: (response) => {
           console.log('Registration Success:', response);
-          // Optional: Handle registration response if needed, such as auto-login or redirect
+          alert('Registration Success:!');
         },
         error: (error) => {
           this.errorMessage = 'Registration Failed';
@@ -42,8 +42,9 @@ export class AuthComponent {
         next: (response) => {
           console.log('Login Success:', response);
           console.log('Login Success:', response.token);
-          localStorage.setItem('authToken', response.token); // Assuming the token is in response.token
-          this.router.navigate(['/app-invest-ment-overview']); // Navigate to dashboard
+          localStorage.setItem('authToken', response.token);
+          alert('Login Success:!');
+          this.router.navigate(['/app-invest-ment-overview']);
         },
         error: (error) => {
           this.errorMessage = 'Login Failed';

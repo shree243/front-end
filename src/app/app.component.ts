@@ -11,7 +11,6 @@ import { RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonModule } from 'primeng/button';
-import { AuthComponent } from './components/auth/auth.component';
 
 import { ChartModule } from 'primeng/chart';
 @Component({
@@ -33,10 +32,6 @@ export class AppComponent {
 
   platformId = inject(PLATFORM_ID);
 
-  // configService = inject(AppConfigService);
-
-  // designerService = inject(DesignerService);
-
   constructor(private cd: ChangeDetectorRef, public router: Router) {}
 
   hideNavbarRoutes: string[] = [
@@ -49,24 +44,11 @@ export class AppComponent {
   shouldShowNavbar(): boolean {
     return this.hideNavbarRoutes.includes(this.router.url);
   }
-
-  /* The `themeEffect` in the AppComponent is a reactive effect that is triggered when certain
-  conditions are met. In this case, the effect is checking if the transition is complete in the
-  configuration service and if a preset is available in the designer service. If both conditions are
-  true, the `initChart()` method is called to initialize the chart with updated data and options.
-  This helps in dynamically updating the chart based on changes in the configuration and designer
-  services. */
   themeEffect = effect(() => {
-    // if (this.configService.transitionComplete()) {
-    //   if (this.designerService.preset()) {
-    //     this.initChart();
-    //   }
-    // }
     this.initChart();
   });
 
   initChart() {
-    // if (isPlatformBrowser(this.platformId)) {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
 
@@ -102,4 +84,3 @@ export class AppComponent {
     this.cd.markForCheck();
   }
 }
-// }

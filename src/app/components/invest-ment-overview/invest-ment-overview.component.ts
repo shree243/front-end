@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 export class InvestMentOverviewComponent implements OnInit {
   stocks: PortfolioStock[] = [];
   valuation: any = {};
-  token: string = ''; // Replace this logic with your auth token source
+  token: string = '';
 
   constructor(
     private portfolioSer: PortfolioService,
@@ -30,12 +30,12 @@ export class InvestMentOverviewComponent implements OnInit {
   ) {}
 
   logout() {
-    localStorage.removeItem('authToken'); // 🔐 Clear JWT token
-    this.router.navigate(['/app-auth']); // 🔁 Redirect to login page
+    localStorage.removeItem('authToken');
+    this.router.navigate(['/app-auth']);
   }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('authToken') || ''; // Or use your token strategy
+    this.token = localStorage.getItem('authToken') || '';
     this.fetchHoldings();
     this.fetchValuation();
   }
@@ -43,7 +43,7 @@ export class InvestMentOverviewComponent implements OnInit {
   fetchHoldings(): void {
     this.portfolioSer.getHoldings(this.token).subscribe({
       next: (data: any) => {
-        console.log('📦 Holdings API response:', data);
+        console.log('Holdings API response:', data);
         this.stocks = data;
       },
       error: (err: any) => {
@@ -63,7 +63,7 @@ export class InvestMentOverviewComponent implements OnInit {
           this.valuation = res;
         },
         error: (err) => {
-          console.error('❌ Error fetching valuation:', err);
+          console.error('Error fetching valuation:', err);
         },
       });
   }

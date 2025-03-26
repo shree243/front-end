@@ -13,7 +13,6 @@ export interface LoginRequest {
 }
 export interface AuthResponse {
   token: string;
-  // Add other properties that might be returned by the API
 }
 
 export interface PortfolioStock {
@@ -40,8 +39,8 @@ export interface SellStockRequest {
   providedIn: 'root',
 })
 export class PortfolioService {
-  private AuthBaseUrl = 'http://localhost:8082/api/auth'; // Example API
-  private portfolioBaseUrl = 'http://localhost:8082/api/portfolio'; // Example API
+  private AuthBaseUrl = 'http://localhost:8082/api/auth';
+  private portfolioBaseUrl = 'http://localhost:8082/api/portfolio';
 
   constructor(private http: HttpClient) {}
 
@@ -56,7 +55,6 @@ export class PortfolioService {
     return this.http.post<AuthResponse>(`${this.AuthBaseUrl}/login`, userData);
   }
 
-  // Get list of posts
   getHoldings(token: string): Observable<PortfolioStock[]> {
     return this.http.get<PortfolioStock[]>(
       `${this.portfolioBaseUrl}/holdings`,
